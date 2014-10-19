@@ -1,0 +1,47 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class UserInput implements KeyListener
+{
+    public UserInput(Game game)
+    {
+        game.addKeyListener(this);
+    }
+    
+    public void keyPressed(KeyEvent e) // when a key is pressed an integer with the key code for the pressed key is stored in int code
+    {
+        int code = e.getKeyCode();
+        
+        if(code == KeyEvent.VK_UP) // if the key pressed is has the same key code as int code then execute
+        {
+            Game.player.upKey = true;
+            Game.player.downKey = false;
+        }
+        
+        if(code == KeyEvent.VK_DOWN) // if the key pressed is has the same key code as int code then execute
+        {
+            Game.player.upKey = false;
+            Game.player.downKey = true;
+        }
+    }
+    
+    public void keyReleased(KeyEvent e)
+    {
+        int code = e.getKeyCode();
+        
+        if(code == KeyEvent.VK_UP) // if the key pressed is has the same key code as int code then execute
+        {
+            Game.player.upKey = false;
+        }
+        
+        if(code == KeyEvent.VK_DOWN) // if the key pressed is has the same key code as int code then execute
+        {
+            Game.player.downKey = false;
+        }
+    }
+    
+    public void keyTyped(KeyEvent e)
+    {
+        
+    }
+}
